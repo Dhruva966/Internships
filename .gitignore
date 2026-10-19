@@ -1,0 +1,26 @@
+# Applicant runtime data belongs outside this repository.
+private/
+runtime/
+state/
+data/
+resumes/
+transcripts/
+receipts/
+screenshots/
+logs/
+exports/
+.env
+.env.*
+!.env.example
+*.pdf
+*.docx
+*.xlsx
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key
+*cookies*
+*token*.json
+__pycache__/
+.DS_Store

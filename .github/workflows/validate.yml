@@ -1,0 +1,14 @@
+name: Validate playbook
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check documentation and synthetic templates
+        run: python3 scripts/check_playbook.py

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "example_only": true,
+  "privacy": {
+    "storage": "Private local data directory outside this repository",
+    "commit_real_profile": false
+  },
+  "applicant": {
+    "preferred_name": { "value": "Example Applicant", "state": "confirmed", "source": "example user statement", "confirmed_at": "2030-01-01" },
+    "legal_name": { "value": null, "state": "unknown", "source": null, "confirmed_at": null },
+    "approved_contact": { "email": null, "phone": null, "address": null, "state": "unknown", "source": null }
+  },
+  "education": {
+    "school": { "value": "Example University", "state": "confirmed", "source": "example resume v1", "confirmed_at": "2030-01-01" },
+    "major": { "value": "Example Engineering", "state": "confirmed", "source": "example resume v1", "confirmed_at": "2030-01-01" },
+    "degree_pursuing": { "value": "Bachelor's", "state": "confirmed", "source": "example user statement", "confirmed_at": "2030-01-01" },
+    "highest_degree_completed": { "value": null, "state": "unknown", "source": null },
+    "graduation": { "value": "2032-06", "state": "estimated", "source": "example user statement", "confirmed_at": "2030-01-01" },
+    "class_standing": { "value": null, "state": "unknown", "source": null },
+    "college_gpa": { "value": null, "scale": null, "state": "not_yet_available", "source": "example user statement", "confirmed_at": "2030-01-01" }
+  },
+  "preferences": {
+    "role_interests_ranked": ["example hardware interest", "example robotics interest"],
+    "hard_exclusions": [],
+    "research_or_industry": { "value": null, "state": "unknown", "source": null },
+    "acceptable_regions": [],
+    "work_modes": [],
+    "relocation": { "value": null, "state": "unknown", "source": null },
+    "availability": {
+      "earliest_start": null,
+      "latest_end": null,
+      "minimum_weeks": null,
+      "maximum_weeks": null,
+      "hours_per_week": null,
+      "state": "unknown",
+      "source": null
+    },
+    "pay": { "paid_only": null, "minimum": null, "desired_maximum": null, "currency": null, "period": null, "state": "unknown", "source": null }
+  },
+  "authorization": {
+    "work_authorized_in_target_country": { "value": null, "state": "unknown", "source": null },
+    "requires_sponsorship_now": { "value": null, "state": "unknown", "source": null },
+    "requires_sponsorship_future": { "value": null, "state": "unknown", "source": null },
+    "export_control_answer": { "value": null, "state": "unknown", "source": null }
+  },
+  "resumes": [
+    { "id": "resume-example-v1", "private_path": "<PRIVATE_DATA_DIR>/resumes/example.pdf", "sha256": null, "version_date": "2030-01-01", "target_role_families": ["example hardware"], "approved_for_upload": false, "approval_source": null, "approved_at": null }
+  ],
+  "technical_evidence": [
+    { "project": "Example project", "contribution": "Replace with a personally completed contribution", "status": "completed", "tools": [], "results": [], "source": "example user statement", "confirmed_at": "2030-01-01" },
+    { "project": "Example project", "contribution": "Replace with a planned feature, not a completed result", "status": "planned", "tools": [], "results": [], "source": "example user statement", "confirmed_at": "2030-01-01" }
+  ],
+  "approved_answers": [],
+  "referrals": [],
+  "existing_applications": [],
+  "voluntary_demographics": { "default": "ask_when_needed", "answers": [], "infer_from_other_fields": false },
+  "execution": {
+    "mode": "discover_only",
+    "scope_approved": false,
+    "submission_authorized": false,
+    "max_applications_per_employer": null,
+    "optional_short_answers": "ask_preference",
+    "new_answer_review": "required",
+    "notification_preference": "meaningful_changes_only",
+    "schedule_approved": false,
+    "approval_source": null
+  },
+  "unresolved_questions": [],
+  "revision_history": []
+}
