@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -78,7 +79,7 @@ def validate_role(role):
 
 
 def ready_errors(role, profile):
-    errors = validate_role(role)
+    errors = validate_role(role) + validate_profile(profile)
     if applied(role) or role.get("do_not_reapply") is True or role.get("application_status") in PENDING_STATES:
         errors.append("already applied or submission unresolved")
     if role.get("opportunity_status") != "open" or role.get("eligibility_status") != "eligible":
@@ -86,8 +87,12 @@ def ready_errors(role, profile):
     if role.get("question_completeness") != "complete" or not known(role.get("resume_version")):
         errors.append("complete approved answers and selected resume required")
     execution = profile.get("execution", {})
-    if execution.get("submission_authorized") is not True or execution.get("scope_approved") is not True:
+    if execution.get("mode") != "submit_approved" or execution.get("submission_authorized") is not True or execution.get("scope_approved") is not True:
         errors.append("submission scope not approved")
+    if not any(r.get("id") == role.get("resume_version") and r.get("approved_for_upload") is True for r in profile.get("resumes", [])):
+        errors.append("selected resume is not in approved inventory")
+    if role.get("company") in profile.get("company_holds", {}):
+        errors.append("company-wide hold requires reconciliation")
     if profile.get("preferences", {}).get("pay", {}).get("paid_only") is True and role.get("paid_status") != "paid":
         errors.append("paid compensation not verified")
     # Detailed fit, consent, attachments and employer rules still need the live review.
@@ -112,7 +117,7 @@ def validate_profile(profile):
         errors.append("unknown college GPA cannot carry a numeric value")
     for resume in profile.get("resumes", []):
         if resume.get("approved_for_upload") is True:
-            if not (len(str(resume.get("sha256", ""))) == 64 and known(resume.get("approval_source")) and known(resume.get("approved_at"))):
+            if not (re.fullmatch(r"[a-fA-F0-9]{64}", str(resume.get("sha256", ""))) and known(resume.get("approval_source")) and known(resume.get("approved_at"))):
                 errors.append("approved resume requires SHA256, approval source and time")
     return errors
 

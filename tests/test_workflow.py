@@ -62,6 +62,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_two_lanes_mock_end_to_end(self):
         self.profile["execution"].update(mode="submit_approved", scope_approved=True, submission_authorized=True, approval_source="Synthetic user")
+        self.profile["resumes"] = [{"id": "mock-approved", "approved_for_upload": True, "sha256": "a" * 64, "approval_source": "Synthetic user", "approved_at": NOW}]
         self.role.update(opportunity_status="open", eligibility_status="eligible", assessment_state="checked", paid_status="paid", resume_version="mock-approved", question_completeness="complete")
         essay_role = dict(self.role, role_id="mock-essay", question_completeness="incomplete")
         self.assertTrue(ready_errors(essay_role, self.profile))
