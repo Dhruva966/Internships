@@ -5,6 +5,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from workflow_contract import validate_role, validate_profile, validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
@@ -15,6 +16,10 @@ REQUIRED = [
     "prompts/BOOTSTRAP.md", "prompts/DAILY_RUN.md", "prompts/APPLICATION_PASS.md",
     "templates/profile.example.json", "templates/roles.example.csv",
     "templates/questions.example.csv",
+    "docs/STATE_AND_RECOVERY.md", "scripts/workflow_contract.py",
+    "templates/manifest.example.json", "templates/ledger.example.json",
+    "templates/checkpoint.example.json", "templates/worker-lock.example.json",
+    "tests/test_workflow.py",
 ]
 
 
@@ -40,7 +45,10 @@ def check(root=ROOT):
             errors.append(f"Possible credential: {path.relative_to(root)}")
     for path in (root / "templates").glob("*.json"):
         try:
-            json.loads(path.read_text(encoding="utf-8"))
+            data = json.loads(path.read_text(encoding="utf-8"))
+            validator = {"profile.example.json": validate_profile, "manifest.example.json": validate_manifest}.get(path.name)
+            if validator:
+                errors.extend(f"{path.name}: {e}" for e in validator(data))
         except (ValueError, OSError) as exc:
             errors.append(f"Invalid JSON: {path.name}: {exc}")
     for path in (root / "templates").glob("*.csv"):
@@ -52,6 +60,8 @@ def check(root=ROOT):
         for number, row in enumerate(rows[1:], 2):
             if len(row) != len(rows[0]):
                 errors.append(f"CSV width mismatch: {path.name}:{number}")
+            elif path.name == "roles.example.csv":
+                errors.extend(f"{path.name}:{number}: {e}" for e in validate_role(dict(zip(rows[0], row))))
     for name in ["private", "runtime", "state", "resumes", "transcripts", "receipts"]:
         if (root / name).exists():
             errors.append(f"Private runtime directory present in package: {name}")

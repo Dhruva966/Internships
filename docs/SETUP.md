@@ -17,11 +17,11 @@ Choose an absolute private runtime directory outside this checkout, accessible t
 - question instances, approved answer versions, story bank;
 - checkpoints, worker ownership/leases, consent scope, receipts and blockers.
 
-Choose JSON/CSV for a single coordinator or SQLite if concurrent durable writers are actually implemented. Do not claim a database exists just because the schema is described. No script here implements the runtime store.
+Choose JSON/CSV for a single coordinator or SQLite if concurrent durable writers are actually implemented. The provided single-host lock, atomic JSON writer and append-only ledger are described in [STATE_AND_RECOVERY.md](STATE_AND_RECOVERY.md). They do not implement a browser worker or distributed database.
 
 ## 2. Intake before searching
 
-Follow [INTAKE.md](INTAKE.md). First ask for **all résumé versions**. Read them, extract known facts with provenance, then ask 1–3 useful questions at a time. Confirm missing hard filters before broad research. Establish a review-only versus authorized-application policy. Never inherit another person's answers from an example.
+Follow [INTAKE.md](INTAKE.md). First ask a new applicant for **all résumé versions**. For an existing applicant, reuse their confirmed résumé/profile and ask only for changes or missing facts. Extract facts with provenance, then ask 1–3 useful questions at a time. Confirm hard filters and application authorization. Never inherit another person's answers from an example.
 
 ## 3. Import prior applications, if any
 
@@ -32,6 +32,8 @@ Ask for an existing tracker and the smallest relevant confirmation evidence. Mer
 Follow [RESEARCH.md](RESEARCH.md), [TRACKER.md](TRACKER.md), and [SHORT_ANSWERS.md](SHORT_ANSWERS.md). Partition independent research among supported subagents; otherwise run the same bounded partitions sequentially. A coordinator validates and merges evidence. Collect public form prompts without transmitting applicant data. An inaccessible form is logged as unknown, not declared essay-free.
 
 ## 5. Dry run and application authorization
+
+After initial research, start short-answer preparation with the applicant while processing eligible roles with no substantive written questions. Research continues incrementally. Optional substantive essays belong in the answer lane, and one writer owns all application actions. Do not wait for the entire research inventory or every essay to be finished before progressing an independently ready role.
 
 Follow [QUALITY_GATES.md](QUALITY_GATES.md). Start in review-only mode. Show the user a small, high-fit queue and one fully reviewed draft. Establish exact data destinations, permitted application classes, employer caps, required confirmations, and answer approvals. A cap is a maximum, not a target. Do not turn on submissions merely because discovery is enabled.
 

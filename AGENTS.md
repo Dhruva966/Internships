@@ -17,7 +17,9 @@ Read README.md and docs/SETUP.md before setup. Start a new applicant with all r�
 
 ## Minimum phase sequence
 
-INTAKE → PROFILE_APPROVED → BASELINE_RESEARCH → QUESTIONS_COLLECTED → DRY_RUN_PASSED → SCHEDULE_CONFIGURED → MONITOR/APPLY.
+Résumé-first INTAKE → PROFILE_APPROVED → initial BASELINE_RESEARCH → DRY_RUN_PASSED → SCHEDULE_CONFIGURED → MONITOR/APPLY. Reuse existing confirmed intake instead of repeating it.
+
+After initial research, advance two lanes concurrently: short-answer collection/approval and applications with no substantive written questions. Research continues incrementally. Question completeness is a per-role gate, not a reason to stall the entire queue. Optional essays count; do not omit them to make a role fit the faster lane. There remains only one application writer. Read docs/STATE_AND_RECOVERY.md before creating runtime state.
 
 Do not skip intake for a new user or claim later phases from the existence of README files. An applicant can enable discovery while leaving submissions disabled. Treat technical assessment questions as human-owned work unless the employer explicitly allows the requested assistance.
 

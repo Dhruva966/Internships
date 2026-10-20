@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "example_only": true,
+  "installation_id": "example-installation",
+  "private_root": "<PRIVATE_DATA_DIR>",
+  "owner_host": null,
+  "files": {
+    "profile": "profile.json",
+    "roles": "roles.json",
+    "ledger": "ledger.json",
+    "checkpoint": "checkpoint.json",
+    "lock": "worker.lock.json"
+  },
+  "tracker": {"provider": "google_sheets", "id": null, "canonical": true, "last_verified_at": null},
+  "question_bank": {"provider": "google_docs", "id": null, "last_verified_at": null},
+  "schedule": {
+    "id": null, "enabled": false, "timezone": null, "cadence": null,
+    "dry_run_passed_at": null, "next_run": null, "last_verified_at": null
+  },
+  "limits": {"max_minutes_per_run": 30, "max_application_attempts_per_run": 5, "source_checks_per_run": 10},
+  "tools": {"browser": "browseros_neo", "connected": false, "spreadsheet_connected": false},
+  "sharing": {"default": "private", "approval_source": null},
+  "runtime_contract": "docs/STATE_AND_RECOVERY.md"
+}

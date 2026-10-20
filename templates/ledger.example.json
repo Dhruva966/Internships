@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0",
+  "events": [],
+  "notes": "Empty synthetic ledger. Never remove confirmed submission events when interview/rejected/offer changes. Events contain event_id, role_id, status, at, evidence; receipt events also link approved resume/answer versions in private receipt storage."
+}

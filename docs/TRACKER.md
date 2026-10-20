@@ -17,7 +17,7 @@ Optional deadline views should reference canonical IDs, not copied application r
 
 - Submitted: full row **very light green**, e.g. `#F0FAF0`.
 - Not submitted: full row **very light red**, e.g. `#FFF6F6`.
-- Use conditional rules based on status, not hand-applied paint that becomes stale. Color is supplementary; keep an explicit status column.
+- Base grouping and colors on immutable prior-submission history, not only the current workflow status. Interview/rejected/offer/withdrawn records with receipts remain green at the bottom and count toward employer limits. Imported prior-submission claims block reapplication until reconciled. Color is supplementary; keep an explicit status column.
 - Keep filters, frozen headers, wrapped notes, usable links and dropdown validation. Verify the actual native rendering after edits. Preserve supporting notes, formulas, and links during moves.
 
 ## Minimum role record

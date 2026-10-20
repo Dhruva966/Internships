@@ -1,4 +1,4 @@
-# Internship-Dash-Applier
+# Internships
 
 A portable, README-first operating system for an agent-assisted internship search: résumé-first intake → parallel verified research → a clean tracker and short-answer bank → daily change monitoring → careful BrowserOS Neo applications.
 
@@ -8,7 +8,7 @@ A portable, README-first operating system for an agent-assisted internship searc
 
 Clone/download this repository, open its folder in your coding agent, and paste:
 
-> Read AGENTS.md and docs/SETUP.md, then set up Internship-Dash-Applier for me. Start by asking for all versions of my résumé. Do not assume you know my background, preferences, availability, or permissions. Use adaptive intake, verify role eligibility and actual application dates, research in parallel where supported, collect exact required and optional short-answer prompts, and create a clean private tracker. Show a dry run before scheduling. Use BrowserOS Neo for applications. Do not submit anything until we establish the application authorization policy and all quality gates pass.
+> Read AGENTS.md and docs/SETUP.md, then set up Internships for me. Start with my résumé; reuse my confirmed profile if already available and ask only for missing or changed facts. Verify eligibility and actual application dates, research in parallel where supported, and collect exact required and optional short-answer prompts. Prepare short answers alongside eligible applications with no substantive written questions. Create a clean private tracker and show a dry run before scheduling. Use BrowserOS Neo. Do not submit until the authorization policy is established and all quality gates pass.
 
 The agent should **ask for your résumé first**, extract what is already known, then ask only useful follow-ups. It should not dump a 50-question form or ask the same question for every employer.
 
@@ -34,7 +34,15 @@ The agent should **ask for your résumé first**, extract what is already known,
 8. [Quality gates and acceptance tests](docs/QUALITY_GATES.md)
 9. [Security and sharing](SECURITY.md)
 
-Reusable run prompts live in [prompts/](prompts/BOOTSTRAP.md). Synthetic templates live in [templates/](templates/profile.example.json). The only executable code is an offline repository check: `python3 scripts/check_playbook.py`.
+Reusable run prompts live in [prompts/](prompts/BOOTSTRAP.md). Synthetic templates live in [templates/](templates/profile.example.json). Offline validation and single-host state primitives are included; they do not operate the browser themselves. Run `python3 scripts/check_playbook.py` and `python3 -m unittest discover -s tests -v`.
+
+## Execution priority
+
+1. Review the résumé first and reuse confirmed profile information for an existing applicant. Ask only for missing or changed facts.
+2. Research official listings in parallel where supported, checking eligibility, compensation, dates and exact application prompts.
+3. Run two lanes alongside each other: collect and approve short answers with the applicant, while preparing eligible applications that have no substantive written questions. Do not wait for every company to be researched before starting either lane.
+4. Use one application writer. Required **and substantive optional** essays belong in the short-answer lane; never skip them for speed. Reuse approved stories only when they genuinely answer the prompt.
+5. Confirm each submission, save its permanent receipt, and update the tracker before proceeding. See [state and recovery](docs/STATE_AND_RECOVERY.md).
 
 ## Important boundaries
 

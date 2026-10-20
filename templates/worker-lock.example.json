@@ -1,0 +1,6 @@
+{
+  "owner": "example-run-id",
+  "pid": 0,
+  "acquired_at": "2030-01-01T09:00:00+00:00",
+  "notes": "Illustration only. DO NOT copy this into the active lock path. WorkerLock creates a fresh exclusive file. A pre-existing lock always blocks another worker until explicit recovery."
+}

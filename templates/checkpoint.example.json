@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "phase": "intake",
+  "last_successful_run_at": null,
+  "last_attempted_run_at": null,
+  "last_failure": null,
+  "profile_version": null,
+  "source_cursor": null,
+  "due_source_ids": [],
+  "pending_role_ids": [],
+  "submission_reconciliation_role_ids": [],
+  "tracker_sync_pending_role_ids": [],
+  "last_notified_change_ids": [],
+  "lanes": {"short_answers": "waiting_for_research", "no_short_answers": "waiting_for_profile_approval"}
+}

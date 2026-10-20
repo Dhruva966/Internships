@@ -9,7 +9,7 @@ Read the private approved profile, résumé manifest, answer bank, current queue
 ## Per-role transaction
 
 1. Select a high-fit eligible open role, respecting dates, company caps and the user's approved scope. Recheck exact current posting and form; a cached search result is insufficient.
-2. Resolve role aliases and prior submissions. Skip `submitted`, `submitting`, `verification_pending` and `submission_unknown` unless performing a receipt reconciliation. Acquire a role lease so another worker cannot claim it.
+2. Resolve role aliases and prior submissions. An immutable receipt means previously applied even after `interview`, `rejected`, `offer` or `withdrawn`; never reapply. Imported claims of prior submission remain duplicate holds until reconciled, never fresh leads. Skip unresolved `submitting`, `verification_pending` and `submission_unknown`. Acquire exclusive ownership before acting; see [state and recovery](STATE_AND_RECOVERY.md).
 3. Inspect the actual form before sending data. Extract missing short-answer prompts and update the question bank. If eligibility, pay, timing or answers are unresolved, create a concise blocker and release/move on.
 4. Confirm the specific permitted data and destination. Select the approved résumé variant by hash/version, not a similar filename. Never attach an agent-generated replacement unless approved.
 5. Fill factual fields from provenance-backed profile entries. Respect exact form wording: current versus permanent address, pursuing versus completed degree, college versus high-school GPA, current versus future sponsorship. An empty numeric GPA field does not justify entering zero or high-school GPA.

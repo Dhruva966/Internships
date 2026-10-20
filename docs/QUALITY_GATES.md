@@ -49,4 +49,6 @@ No gate is satisfied by intent, a plausible summary, or a checkbox in a README. 
 
 ## Completion report
 
+Run `python3 scripts/check_playbook.py` for package/schema checks and `python3 -m unittest discover -s tests -v` for synthetic state, two-lane, duplicate and restart tests. These are offline tests, not proof that every acceptance scenario or live ATS interaction has passed. Use [STATE_AND_RECOVERY.md](STATE_AND_RECOVERY.md) for a private manifest, ledger, checkpoint and single-host lock. Verify live connectors separately with harmless reads; final-form attachment/consent/receipt gates still apply to every real application.
+
 Report verified counts, unresolved holds with owners, source gaps, actual scheduler state, and next action. Separate `prepared`, `scheduled`, `attempted`, `verification_pending` and `confirmed submitted`. Do not say "running daily" until a saved enabled schedule and test execution have been verified. Do not claim offline fixture checks prove live connectors or submission quality.
